@@ -1,5 +1,18 @@
 import { useEffect } from 'react'
+
+// ! All below is react-router-dom version 6
+// Bringing in components from react-router-dom (navigational system of React)
+
+// BrowserRouter contains any component that needs to use a Link component
+// Routes which allows us to only load one component at a time
+// Route which specifies a route, and we attach to a component to make a single page
+import { BrowserRouter, Routes, Route } from 'react-router-dom'
+  
 import axios from 'axios' // Importing axios
+
+// Import components
+import Home from './components/Home'
+import MovieIndex from './components/movies/MovieIndex'
 
 const App = () => {
   useEffect(() => {
@@ -10,7 +23,12 @@ const App = () => {
     getData()
   })
 
-  return <h1>Hello World</h1>
+  return (
+    <>
+      <Home />
+      <MovieIndex />
+    </>
+  )
 }
 
 export default App
