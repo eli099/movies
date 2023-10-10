@@ -7,7 +7,7 @@ import { useEffect } from 'react'
 // Routes which allows us to only load one component at a time
 // Route which specifies a route, and we attach to a component to make a single page
 import { BrowserRouter, Routes, Route } from 'react-router-dom'
-  
+
 import axios from 'axios' // Importing axios
 
 // Import components
@@ -25,8 +25,11 @@ const App = () => {
 
   return (
     <>
-      <Home />
-      <MovieIndex />
+      {/* Any component that uses a Link component needs to be nested inside the BrowserRouter */}
+      <BrowserRouter>
+        <Home />
+        <MovieIndex />
+      </BrowserRouter>
     </>
   )
 }
