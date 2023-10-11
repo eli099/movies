@@ -13,6 +13,7 @@ import axios from 'axios' // Importing axios
 // Import components
 import Home from './components/Home'
 import MovieIndex from './components/movies/MovieIndex'
+import NavBar from './components/NavBar'
 
 const App = () => {
   useEffect(() => {
@@ -24,13 +25,21 @@ const App = () => {
   })
 
   return (
-    <>
+    <main className='site-wrapper'>
       {/* Any component that uses a Link component needs to be nested inside the BrowserRouter */}
       <BrowserRouter>
-        <Home />
-        <MovieIndex />
+        {/* Any global component that we want o show on every page doesn't need a route */}
+        <NavBar />
+        {/* Alternatively any component that needs its own url needs to be added to a route */}
+        <Routes>
+          {/* Only route components should be children of Routes */}
+          {/* We define a Route component then add the component we want to show as an element*/}
+          {/* Path we wish component to have is set in path attribute */}
+          <Route path="/" element={<Home />} />
+          <Route path="/movies" element={ <MovieIndex />} />
+        </Routes>
       </BrowserRouter>
-    </>
+    </main>
   )
 }
 
