@@ -3,7 +3,7 @@ import React from 'react'
 // Bring in Link for React navigation
 import { Link } from 'react-router-dom'
 
-const NavBar = () => {
+const PageNavBar = () => {
   return (
     <header>
       <nav>
@@ -14,4 +14,4 @@ const NavBar = () => {
   )
 }
 
-export default NavBar
+export default PageNavBar
