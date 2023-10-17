@@ -7,10 +7,13 @@ import { Link } from 'react-router-dom'
 
 const Home = () => {
   return (
-    <>
-      <h1>Home</h1>
-      <Link to="/movies">Movies</Link>
-    </>
+    <div className="hero text-center">
+      <div className="hero-container bg-light">
+        <h1 className="display-3">📽 Movie Collection 📽</h1>
+        <p className='lead'>Information about all Studio Ghibli movies...</p>
+        <Link to="/movies">Discover Movies</Link>
+      </div>
+    </div>
   )
 }
 
