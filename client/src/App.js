@@ -8,8 +8,6 @@ import { useEffect } from 'react'
 // Route which specifies a route, and we attach to a component to make a single page
 import { BrowserRouter, Routes, Route } from 'react-router-dom'
 
-import axios from 'axios' // Importing axios
-
 // Import components
 import Home from './components/Home'
 import MovieIndex from './components/movies/MovieIndex'
@@ -17,13 +15,6 @@ import PageNavBar from './components/PageNavBar'
 import NotFound from './components/NotFound'
 
 const App = () => {
-  useEffect(() => {
-    const getData = async () => {
-      const { data } = await axios.get('/api/products/') // * <-- replace with your endpoint
-      console.log(data)
-    }
-    getData()
-  })
 
   return (
     <main className='site-wrapper'>

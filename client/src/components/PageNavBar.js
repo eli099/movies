@@ -19,12 +19,12 @@ const PageNavBar = () => {
         <Navbar.Toggle aria-controls='basic-navbar-nav' />
         {/* Navbar Collapse */}
         <Navbar.Collapse id="basic-navbar-nav" className='justify-content-end'>
-          {/* Nav Link  */} 
-          <Nav.Link as={Link} to="/">Home</Nav.Link>
-          <Nav.Link as={Link} to="/movies">Movies</Nav.Link>
+          <Nav>
+            {/* Nav Link  */}
+            <Nav.Link as={Link} to="/">Home</Nav.Link>
+            <Nav.Link as={Link} to="/movies">Movies</Nav.Link>
+          </Nav>
         </Navbar.Collapse>
-        <Nav>
-        </Nav>
       </Container>
     </Navbar>
   )
