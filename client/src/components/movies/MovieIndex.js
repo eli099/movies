@@ -17,26 +17,26 @@ import Row from 'react-bootstrap/Row'
 import Col from 'react-bootstrap/Col'
 import Card from 'react-bootstrap/Card'
 
+// import camelize from 
 
 
 const MovieIndex = () => {
 
   const [movies, setMovies] = useState([])
 
-  // const toCamel = (s) => {
-  //   return s.replace(/([-_][a-z])/ig, ($1) => {
-  //     return $1.toUpperCase()
-  //       .replace('-', '')
-  //       .replace('_', '')
-  //   })
-  // }
+  // To camelise the (snake case) keys from the API [installed the 'camelize' package]
+  const camelize = require('camelize')
 
   useEffect(() => {
     const getMovies = async () => {
       try {
         const { data } = await axios.get('https://ghibliapi.vercel.app/films')
-        setMovies(data)
+        // 'camelize' the data
+        const camelCaseData = camelize(data)
+        // set to state
+        setMovies(camelCaseData)
         console.log('data ->', data)
+        console.log('camelized data ->', camelCaseData)
       } catch (error) {
         console.log(error)
       }
@@ -44,31 +44,33 @@ const MovieIndex = () => {
     getMovies()
   }, [])
 
-  
+
 
   return (
     <>
-      <Container>
+      <Container className="movie-list">
         <Row>
-          <Col md="6" lg="4" className="movie">
-            {movies.map(movie => {
-              const { id, title, image, release_date, director } = movie
-              return (
-                <Link to="movies" key={id}>
-                  <Card>
+          {movies.map(movie => {
+            const { id, title, image, releaseDate, director, originalTitle } = movie
+            return (
+              <Col md="6" lg="4" className="movie mb-4" key={id}>
+                <Card>
+                  <Link to="movies">
                     <Card.Img src={image} />
-                    <Card.Body>
-                      <Card.Title>{title} ({release_date})</Card.Title>
-                      <Card.Subtitle>{original_title}</Card.Subtitle>
-                      <Card.Text>{director}</Card.Text>
-                    </Card.Body>
-                  </Card>
-                </Link>
-              )
-            })}
-          </Col>
+                  </Link>
+                  <Card.Body className='bg-primary-subtle'>
+                    <Link to="movies">
+                      <Card.Title>{title} ({releaseDate})</Card.Title>
+                    </Link>
+                    <Card.Subtitle>{originalTitle}</Card.Subtitle>
+                    <Card.Text>dir. {director}</Card.Text>
+                  </Card.Body>
+                </Card>
+              </Col>
+            )
+          })}
         </Row>
-      </Container>
+      </Container >
     </>
   )
 }
