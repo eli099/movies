@@ -11,7 +11,7 @@ const Home = () => {
       <div className="hero-container bg-light">
         <h1 className="display-3">📽 Movie Collection 📽</h1>
         <p className='lead'>Information about all Studio Ghibli movies...</p>
-        <Link to="/movies">Discover Movies</Link>
+        <Link to="/movies" className='btn btn-info btn-md'>Discover Movies</Link>
       </div>
     </div>
   )
