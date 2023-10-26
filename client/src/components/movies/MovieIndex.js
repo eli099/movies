@@ -17,8 +17,6 @@ import Row from 'react-bootstrap/Row'
 import Col from 'react-bootstrap/Col'
 import Card from 'react-bootstrap/Card'
 
-// import camelize from 
-
 
 const MovieIndex = () => {
 
@@ -55,11 +53,11 @@ const MovieIndex = () => {
             return (
               <Col md="6" lg="4" className="movie mb-4" key={id}>
                 <Card>
-                  <Link to="movies">
+                  <Link to={`/movies/${id}`}>
                     <Card.Img src={image} />
                   </Link>
                   <Card.Body className='bg-primary-subtle'>
-                    <Link to="movies">
+                    <Link to={`/movies/${id}`}>
                       <Card.Title>{title} ({releaseDate})</Card.Title>
                     </Link>
                     <Card.Subtitle>{originalTitle}</Card.Subtitle>

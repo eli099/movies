@@ -4,7 +4,7 @@ import Spinner from 'react-bootstrap/Spinner'
 
 const SpinnerIcon = () => (
   <div className="spinner-wrapper">
-    <Spinner animation="grow" />
+    <Spinner animation="grow" variant="info"/>
   </div>
 )
 

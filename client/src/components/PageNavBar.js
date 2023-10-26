@@ -10,7 +10,7 @@ import Nav from 'react-bootstrap/Nav'
 
 const PageNavBar = () => {
   return (
-    <Navbar bg="secondary" expand="sm">
+    <Navbar bg="light" expand="sm">
       <Container>
         {/* Navbar Brand */}
         {/* Replace href with 'as={Link}' and a 'to="/..."' */}

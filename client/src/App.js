@@ -11,13 +11,14 @@ import { BrowserRouter, Routes, Route } from 'react-router-dom'
 // Import components
 import Home from './components/Home'
 import MovieIndex from './components/movies/MovieIndex'
+import MovieShow from './components/movies/MovieShow'
 import PageNavBar from './components/PageNavBar'
 import NotFound from './components/NotFound'
 
 const App = () => {
 
   return (
-    <main className='site-wrapper'>
+    <main className='site-wrapper bg-info'>
       {/* Any component that uses a Link component needs to be nested inside the BrowserRouter */}
       <BrowserRouter>
         {/* Any global component that we want o show on every page doesn't need a route */}
@@ -29,6 +30,9 @@ const App = () => {
           {/* Path we wish component to have is set in path attribute */}
           <Route path="/" element={<Home />} />
           <Route path="/movies" element={<MovieIndex />} />
+          {/* Below: Define route for specific movie, using aplaceholder */}
+          {/* To define placeholder in path, use colone before e.g. :id */}
+          <Route path="/movies/:id" element={<MovieShow />} />
           {/* Following path matches any path specified - needs to come last */}
           <Route path="*" element={<NotFound />} />
         </Routes>
