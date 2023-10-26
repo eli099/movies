@@ -23,6 +23,8 @@ const MovieIndex = () => {
 
   const [movies, setMovies] = useState([])
 
+  const [errors, setErrors] = useState(false)
+
   // To camelise the (snake case) keys from the API [installed the 'camelize' package]
   const camelize = require('camelize')
 
@@ -38,6 +40,7 @@ const MovieIndex = () => {
         console.log('camelized data ->', camelCaseData)
       } catch (error) {
         console.log(error)
+        setErrors(true)
       }
     }
     getMovies()
@@ -49,7 +52,7 @@ const MovieIndex = () => {
     <>
       <Container className="movie-list">
         <Row>
-          {movies.map(movie => {
+          {movies.length ? movies.map(movie => {
             const { id, title, image, releaseDate } = movie
             return (
               <Col md="6" lg="4" className="movie mb-4" key={id}>
@@ -65,7 +68,12 @@ const MovieIndex = () => {
                 </Card>
               </Col>
             )
-          })}
+          })
+            :
+            <h2 className='text-center'>
+              {errors ? 'Something went wrong! Please try again later.' : <SpinnerIcon />}
+            </h2>
+          }
         </Row>
       </Container >
     </>
