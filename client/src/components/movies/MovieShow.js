@@ -9,6 +9,8 @@ import Container from 'react-bootstrap/Container'
 import Row from 'react-bootstrap/Row'
 import Col from 'react-bootstrap/Col'
 import Card from 'react-bootstrap/Card'
+import Badge from 'react-bootstrap/Badge'
+import Table from 'react-bootstrap/Table'
 
 // Import useParams: a method that returns an object of placholders as keys
 // e.g. 
@@ -60,15 +62,32 @@ const MovieShow = () => {
               <Col md="6">
                 <Card>
                   <Card.Body>
-                    <h4>Description</h4>
-                    <p>{movie.description}</p>
-                    <hr />
-                    <h4>Director</h4>
-                    <p>{movie.director}</p>
-                    <hr />
-                    <h4>Producer</h4>
-                    <p>{movie.producer}</p>
-                    <hr />
+                    <Card.Title>📽 {movie.title}</Card.Title>
+                    {/* <Card.Subtitle className='text-muted mb-2'>
+                      <Badge className='me-2'>JP</Badge>{movie.originalTitle} <br />
+                      <Badge className='me-2'>R</Badge>{movie.originalTitleRomanised}
+                    </Card.Subtitle> */}
+                    <Table striped bordered hover className='text-muted'>
+                      <tr>
+                        <td><Badge pill className='bg-primary text-light'>Japanese</Badge></td>
+                        <td>{movie.originalTitle}</td>
+                      </tr>
+                      <tr>
+                        <td><Badge pill className='bg-primary text-light'>Romaji</Badge></td>
+                        <td>{movie.originalTitleRomanised}</td>
+                      </tr>
+                    </Table>
+                    <Card.Subtitle>Description</Card.Subtitle>
+                    <Card.Text>
+                      <p>{movie.description}</p>
+                      <hr />
+                      <h4>Director</h4>
+                      <p>{movie.director}</p>
+                      <hr />
+                      <h4>Producer</h4>
+                      <p>{movie.producer}</p>
+                      <hr />
+                    </Card.Text>
                     <Link to="/movies" className="btn btn-light">Back to Movies</Link>
                   </Card.Body>
                 </Card>

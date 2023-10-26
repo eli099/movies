@@ -16,6 +16,7 @@ import Container from 'react-bootstrap/Container'
 import Row from 'react-bootstrap/Row'
 import Col from 'react-bootstrap/Col'
 import Card from 'react-bootstrap/Card'
+import Badge from 'react-bootstrap/Badge'
 
 
 const MovieIndex = () => {
@@ -49,19 +50,17 @@ const MovieIndex = () => {
       <Container className="movie-list">
         <Row>
           {movies.map(movie => {
-            const { id, title, image, releaseDate, director, originalTitle } = movie
+            const { id, title, image, releaseDate } = movie
             return (
               <Col md="6" lg="4" className="movie mb-4" key={id}>
                 <Card>
                   <Link to={`/movies/${id}`}>
                     <Card.Img src={image} />
                   </Link>
-                  <Card.Body className='bg-primary-subtle'>
+                  <Card.Body className='bg-light'>
                     <Link to={`/movies/${id}`}>
                       <Card.Title>{title} ({releaseDate})</Card.Title>
                     </Link>
-                    <Card.Subtitle>{originalTitle}</Card.Subtitle>
-                    <Card.Text>dir. {director}</Card.Text>
                   </Card.Body>
                 </Card>
               </Col>
