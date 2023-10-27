@@ -54,11 +54,11 @@ const MovieShow = () => {
 
   return (
     <>
-      <Container className='movie-list'>
+      <Container className='movie-show'>
         <Row>
           {movie ?
             <>
-              <Col md="6">
+              <Col className="movie" md="6">
                 <img src={movie.image} alt={movie.title} />
               </Col>
               <Col md="6">
@@ -116,8 +116,8 @@ const MovieShow = () => {
 
                       <p>
                         <ButtonGroup>
-                          <Button variant="outline-secondary" bg="info">Rotten Tomato Score</Button>
-                          <Button disabled variant="outline-success" bg="info">{movie.rtScore}</Button>
+                          <Button disabled className='pt-0 pb-0' variant="outline-secondary" bg="info">Rotten Tomato Score</Button>
+                          <Button disabled className='pt-0 pb-0' variant="outline-success" bg="info">{movie.rtScore}%</Button>
                         </ButtonGroup>
                       </p>
 

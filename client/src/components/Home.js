@@ -11,6 +11,12 @@ const Home = () => {
       <div className="hero-container bg-light">
         <h1 className="display-3">📽 Movie Collection 📽</h1>
         <p className='lead'>Information about all Studio Ghibli movies...</p>
+        <p className='fs-6 fw-light text-wrap'>
+          Studio Ghibli, acclaimed Japanese animation film studio that was founded in 1985 by animators and directors Miyazaki Hayao and Takahata Isao and producer Suzuki Toshio. Studio Ghibli is known for the high quality of its filmmaking and its artistry. Its feature films won both critical and popular praise and influenced other animation studios.
+        </p>
+        <p className="blockquote-footer">
+          Britannica
+        </p>
         <Link to="/movies" className='btn btn-info btn-md'>Discover Movies</Link>
       </div>
     </div>
